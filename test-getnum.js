@@ -18,3 +18,26 @@ console.log(c.getUnit("l"));      // L
 console.log(c.getUnit("5gal"));   // gal
 console.log(c.getUnit("10xyz"));  // invalid unit
 console.log(c.getUnit("4.5"));    // invalid unit
+
+console.log("");
+
+console.log(c.getReturnUnit("gal"));  // L
+console.log(c.getReturnUnit("l"));    // gal
+console.log(c.getReturnUnit("mi"));   // km
+console.log(c.getReturnUnit("km"));   // mi
+console.log(c.getReturnUnit("lbs"));  // kg
+console.log(c.getReturnUnit("kg"));   // lbs
+console.log(c.getReturnUnit("4.5"));  // invalid unit
+
+console.log("");
+
+console.log(c.spellOutUnit("gal"));  // gallons
+console.log(c.spellOutUnit("L"));    // liters
+console.log(c.spellOutUnit("mi"));   // miles
+console.log(c.spellOutUnit("km"));   // kilometers
+console.log(c.spellOutUnit("lbs"));  // pounds
+console.log(c.spellOutUnit("kg"));   // kilograms
+
+
+
+

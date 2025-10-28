@@ -63,15 +63,35 @@ function ConvertHandler() {
   };
   
   this.getReturnUnit = function(initUnit) {
-    let result;
-    
-    return result;
+    const unitMap = {
+      'gal':'L',
+      'l':'gal',
+      'lbs':'kg',
+      'kg':'lbs',
+      'mi':'km',
+      'km':'mi'
+    };
+
+    const unit = initUnit.toLowerCase();
+
+    if (!unitMap[unit]) {
+      return 'invalid unit';
+    }
+
+    return unitMap[unit];
   };
 
   this.spellOutUnit = function(unit) {
-    let result;
+    const spelling = {
+      'gal':'gallons',
+      'L':'liters',
+      'mi':'miles',
+      'km':'kilometers',
+      'lbs':'pounds',
+      'kg':'kilograms'
+    };
     
-    return result;
+    return spelling[unit] || 'invalid unit'
   };
   
   this.convert = function(initNum, initUnit) {
