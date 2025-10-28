@@ -1,14 +1,64 @@
 function ConvertHandler() {
   
   this.getNum = function(input) {
-    let result;
+
+    const validUnits = ['gal','l','lbs','kg','mi','km'];
     
-    return result;
+    // Extrai o que não é letra
+    let match = input.match(/^[^a-zA-Z]+/);
+
+    // Se inicia sem numero, numero = 1
+    if (!match) {
+      // Se inicia com letra, verifica se unidade é valida
+      const unitMatch = input.match(/[a-zA-Z]+/);
+      if (unitMatch && validUnits.includes(unitMatch[0].toLowerCase())) {
+        return 1;
+      }
+      return 'invalid number';
+    }
+    
+    let result = match[0];
+
+    // Se tiver mais de uma barra (fraçao invalida)
+    if ((result.match(/\//g) || []).length > 1) {
+      return 'invalid number';
+    }
+
+    // Se contem fraçao
+    if (result.includes('/')) {
+      let parts = result.split('/');
+      let numerator = parseFloat(parts[0]);
+      let denominator = parseFloat(parts[1]);
+
+      if (isNaN(numerator) || isNaN(denominator)) {
+        return 'invalid number';
+      }
+
+      return numerator / denominator;
+    }
+
+    // Numero simples
+    let num = parseFloat(result);
+    if (isNaN(num)) return 'invalid number';
+
+    return num;
   };
   
   this.getUnit = function(input) {
-    let result;
+    let result = input.match(/[a-zA-Z]+$/);
     
+    if (!result) return 'invalid unit';
+
+    let unit = result[0].toLowerCase();
+
+    const validUnits = ['gal','l','lbs','kg','mi','km'];
+
+    if (!validUnits.includes(unit)) {
+      return 'invalid unit';
+    }
+
+    if (unit === 'l') return 'L';
+
     return result;
   };
   
