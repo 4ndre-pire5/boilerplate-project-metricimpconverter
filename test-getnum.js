@@ -47,6 +47,14 @@ console.log(c.convert(1, "km"));  // ~0.62137
 console.log(c.convert(1, "lbs")); // ~0.453592
 console.log(c.convert(1, "kg"));  // ~2.20462
 
+console.log("");
+
+console.log(c.getString(3.1, "mi", 4.98895, "km"));
+// 3.1 miles converts to 4.98895 kilometers
+
+console.log(c.getString(5, "kg", 11.0231, "lbs"));
+// 5 kilograms converts to 11.0231 pounds
+
 
 
 

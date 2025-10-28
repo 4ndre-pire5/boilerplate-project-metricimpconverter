@@ -120,9 +120,12 @@ function ConvertHandler() {
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
-    let result;
-    
-    return result;
+    const spelledInitUnit = this.spellOutUnit(initUnit);
+    const spelledReturnUnit = this.spellOutUnit(returnUnit);
+
+    const roundedReturnNum = parseFloat(returnNum.toFixed(5));
+
+    return `${initNum} ${spelledInitUnit} converts to ${roundedReturnNum} ${spelledReturnUnit}`;
   };
   
 }
