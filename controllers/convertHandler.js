@@ -97,32 +97,42 @@ function ConvertHandler() {
   };
   
   this.convert = function(initNum, initUnit) {
-    if (!initUnit || typeof initUnit !== 'string') {
-      return 'invalid unit';
-    }
-
     const galToL = 3.78541;
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
 
-    const unit = initUnit.toLowerCase();
-
+    let result;
+    let unit = initUnit.toLowerCase();
+    
     switch (unit) {
       case 'gal':
-        return initNum * galToL;
+        result = initNum * galToL;
+        break;
+        
       case 'l':
-        return initNum / galToL;
+        result = initNum / galToL;
+        break;
+
       case 'mi':
-        return initNum * miToKm;
+        result = initNum * miToKm;
+        break;
+
       case 'km':
-        return initNum / miToKm;
+        result = initNum / miToKm;
+        break;
+
       case 'lbs':
-        return initNum * lbsToKg;
+        result = initNum * lbsToKg;
+        break;
+
       case 'kg':
-        return initNum / lbsToKg;
+        result = initNum / lbsToKg;
+        break;
+
       default:
-        return null;
+        return 'invalid uint';
     }
+    return parseFloat(result.toFixed(5));
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
