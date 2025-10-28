@@ -38,6 +38,15 @@ console.log(c.spellOutUnit("km"));   // kilometers
 console.log(c.spellOutUnit("lbs"));  // pounds
 console.log(c.spellOutUnit("kg"));   // kilograms
 
+console.log("");
+
+console.log(c.convert(1, "gal")); // ~3.78541
+console.log(c.convert(1, "L"));   // ~0.26417
+console.log(c.convert(1, "mi"));  // ~1.60934
+console.log(c.convert(1, "km"));  // ~0.62137
+console.log(c.convert(1, "lbs")); // ~0.453592
+console.log(c.convert(1, "kg"));  // ~2.20462
+
 
 
 
